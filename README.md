@@ -1,37 +1,18 @@
-Moodle "Moove" theme repository
-===============================
+# Tema Moodle - Semillero Chagra 🌿
 
-Moove is Moodle's theme that makes online environments more clean and intuitive for learners and educators. Its intuitive layout is optimised for online learning, focusing on the things that matter - your learning activities and content.
+Este es un tema personalizado desarrollado para la plataforma de aprendizaje virtual del **Semillero de Investigación Chagra**, como parte del proyecto **Hábitat TICs** de la **Universidad Nacional de Colombia**.
 
-Moove is built on Boostrap4 and Mustache templates.
+## 📝 Descripción
+El tema está diseñado para optimizar la experiencia de usuario (UX) y la interfaz (UI) de Moodle, adaptándose a las necesidades pedagógicas y comunicativas del proyecto Hábitat TICs. Se enfoca en la usabilidad, el diseño responsivo y la identidad visual del semillero.
 
-Documentation
-=============
+## 🚀 Características Principales
+* **Diseño Personalizado:** Ajustes visuales específicos para la identidad del proyecto.
+* **Basado en Moove:** (O el framework que hayas usado) Optimizado para un rendimiento ligero.
+* **Layout Responsivo:** Compatible con dispositivos móviles y tablets.
+* **Integración con Moodle:** Compatible con versiones [Insertar versión, ej: 3.11 / 4.x].
 
-You can see the theme documentation on: https://github.com/willianmano/moodle-theme_moove/wiki
-
-Developed and maintained by
-===========================
-Willian Mano
- - Zend Certified PHP Engineer - ZEND028770
- - Certified Scrum Master - 000570341
- - iMasters Certified Professional - PHP - Good Practices - 1076
-
-Moodle profile: https://moodle.org/user/profile.php?id=968235
-
-Linkedin: https://www.linkedin.com/in/willianmano
-
-Installation
-------------
-
-**First way**
-
-- Clone this repository into the folder theme.
-- Access the notification area in moodle and install
-
-**Second way**
-
-- Download this repository
-- Extract the content
-- Put the folder into the folder theme of your moodle
-- Access the notification area in moodle and install
+## 🛠️ Instalación
+1. Descarga o clona este repositorio en tu carpeta de temas de Moodle:
+   ```bash
+   cd /ruta/a/tu/moodle/theme
+   git clone [https://github.com/DPosso99/Tema_Moodle_UNAL_habitattics.git](https://github.com/DPosso99/Tema_Moodle_UNAL_habitattics.git) moove_chagra
