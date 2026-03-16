@@ -1,6 +1,7 @@
 # Tema Moodle - Semillero Chagra 🌿
 
 Este es un tema personalizado desarrollado para la plataforma de aprendizaje virtual del **Semillero de Investigación Chagra**, como parte del proyecto **Hábitat TICs** de la **Universidad Nacional de Colombia**.
+URL de sitio: https://proyectohabitattic.site/
 
 ## 📝 Descripción
 El tema está diseñado para optimizar la experiencia de usuario (UX) y la interfaz (UI) de Moodle, adaptándose a las necesidades pedagógicas y comunicativas del proyecto Hábitat TICs. Se enfoca en la usabilidad, el diseño responsivo y la identidad visual del semillero.
