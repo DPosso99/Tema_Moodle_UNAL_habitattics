@@ -1,0 +1,174 @@
+.dashboard-card {
+    border: 1px solid $gray-200;
+
+    &.dimmed {
+        color: $text-muted;
+
+        a {
+            color: $text-muted;
+        }
+    }
+
+    .dashboard-card-img {
+        padding: .5rem;
+        position: relative;
+        height: 10rem !important;
+        background-position: center;
+        background-size: cover;
+
+        .course-category {
+            background-color: #677d29;
+            color: #fff;
+            padding: 4px 6px;
+            margin-bottom: .25rem;
+            border-radius: 0.5rem;
+            width: fit-content;
+            font-size: 80%;
+
+            span.categoryname {
+                color: #fff;
+            }
+        }
+    }
+
+    .card-body.course-info-container .coursename .text-truncate {
+        white-space: initial;
+    }
+}
+
+.block .block-cards .moove-card-footer {
+    padding: .8rem;
+
+    .progress {
+        margin-left: auto;
+    }
+}
+
+.block .block-cards {
+    .container-fluid {
+        max-width: 100%;
+    }
+
+    .dashboard-card-footer {
+        border-radius: .5rem;
+
+        &.menu {
+            opacity: .8;
+            padding: 0.5rem 0.8rem;
+
+            .btn.btn-link.btn-icon {
+                background-color: #1d2125;
+                color: #ffffff;
+                border-radius: 50%;
+                height: 24px !important;
+                width: 24px !important;
+            }
+        }
+    }
+
+    .moove-card-footer {
+        padding: .8rem;
+
+        .progress {
+            margin-left: auto;
+        }
+    }
+}
+
+.block_myoverview {
+    &.block {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background-color: #00000000 !important;
+
+        // Textos negros para el bloque
+        h3, h4, h5,
+        label,
+        p,
+        span:not(.sr-only),
+        a.aalink,
+        a.coursename,
+        hr {
+            color: #000000 !important;
+        }
+
+        // Textos blancos dentro de las tarjetas de curso (moove-course-card-target)
+        .moove-course-card-target {
+            .moove-card-level,
+            .moove-card-title,
+            .moove-card-button,
+            .moove-card-button span,
+            .moove-card-btn-hover,
+            .moove-card-summary {
+                color: #ffffff !important;
+            }
+        }
+
+        // Título principal del bloque en blanco
+        .card-title {
+            color: #1d2125 !important;
+        }
+
+        // Botones de filtro (Todos, Ordenar, Tarjeta)
+        .btn-outline-secondary {
+            color: #fff !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+            background-color: #ffffff  !important;
+        }
+
+        // Input de búsqueda
+        .form-control {
+            background-color: #ffffff !important;
+            color:  !important;
+            border-color: rgba(0, 0, 0, 0.2) !important;
+
+            &::placeholder {
+                color: rgba(0, 0, 0, 0.5) !important;
+            }
+        }
+    }
+
+    .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
+        width: calc(33.33% - 2rem);
+        margin: 1rem;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .block-myoverview .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
+        width: calc(100%);
+        margin: 1rem 0;
+    }
+}
+
+// ─── Grid "Mis Cursos" (dashboard) ─────────────────────────────────────────
+// Las tarjetas ahora usan .moove-course-card-target (mismo HTML que /course/index.php)
+// Solo necesitamos ajustar el contenedor y quitar el padding de las columnas Bootstrap.
+.block_myoverview {
+    .card-grid[data-region="card-deck"] {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin: 0 !important;
+
+        @include media-breakpoint-down(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // Quitar columnas Bootstrap para que el grid tome el control
+    .col.d-flex {
+        display: contents !important;
+    }
+
+    // La tarjeta ocupa todo el espacio de su celda en el grid
+    .moove-course-card-target {
+        width: 100%;
+        margin: 0;
+    }
+}
+// ─── Fin grid "Mis Cursos" ───────────────────────────────────────────────────

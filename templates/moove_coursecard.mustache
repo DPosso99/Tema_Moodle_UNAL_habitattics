@@ -1,0 +1,37 @@
+{{! theme/moove/templates/moove_coursecard.mustache - Rediseño moderno }}
+<div class="moove-course-card-target {{^visible}}dimmed{{/visible}}"
+     data-region="course-content" data-course-id="{{{id}}}">
+
+    {{! Imagen de fondo }}
+    <img class="moove-card-background-image" src="{{{image}}}" alt="">
+
+    {{! Overlay permanente (gradiente abajo) }}
+    <div class="moove-card-overlay"></div>
+
+    {{! Overlay de hover con descripción }}
+    <div class="moove-card-hover-overlay">
+        {{#summary}}<p class="moove-card-summary">{{summary}}</p>{{/summary}}
+        <a href="{{{courseurl}}}" class="moove-card-btn-hover">
+            Ingresar <i class="fa fa-arrow-right"></i>
+        </a>
+    </div>
+
+    {{! Íconos de matrícula (top-right) }}
+    {{#hasenrolmenticons}}
+    <div class="moove-enrolment-icons">
+        {{#enrolmenticons}}<div class="enrolmenticon">{{{.}}}</div>{{/enrolmenticons}}
+    </div>
+    {{/hasenrolmenticons}}
+
+    {{! Contenido visible siempre (categoría + título + botón) }}
+    <div class="moove-card-content">
+        <div class="moove-card-top">
+            {{#category}}<span class="moove-card-level">{{{category}}}</span>{{/category}}
+            <h5 class="moove-card-title">{{{fullname}}}</h5>
+        </div>
+        <a href="{{{courseurl}}}" class="moove-card-button">
+            <span>Ingresar</span>
+            <i class="fa fa-arrow-right"></i>
+        </a>
+    </div>
+</div>

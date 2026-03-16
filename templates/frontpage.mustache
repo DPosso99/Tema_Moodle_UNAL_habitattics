@@ -1,0 +1,67 @@
+{{!
+    Frontpage template for theme_moove
+    Based on drawers.mustache but with custom hero and cards sections
+}}
+{{> theme_moove/head }}
+
+<body {{{ bodyattributes }}}>
+{{> theme_moove/accessibilitybar }}
+
+{{> core/local/toast/wrapper}}
+<div id="page-wrapper" class="d-print-block">
+
+    {{{ output.standard_top_of_body_html }}}
+
+    {{> theme_moove/navbar }}
+
+    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers drag-container">
+
+        <!-- HÉROE PERSONALIZADO -->
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Proyecto <span>Hábitat TICs</span></h1>
+                <p>Desde sus raíces sociales hasta el entorno digital, conoce todo sobre la transformación del hábitat con tecnologías de la información.</p>
+                <a href="{{{ config.wwwroot }}}/course/index.php" class="btn-hero">Cursos disponibles</a>
+            </div>
+        </div>
+
+        <!-- TARJETAS DE CURSOS -->
+        <div id="oferta-academica" class="offer-section">
+            <div class="offer-grid">
+                {{#coursecards}}
+                <div class="offer-card">
+                    <div class="offer-card__img" style="background-image: url('{{{ image }}}');"></div>
+                    <div class="offer-card__overlay">
+                        <p class="offer-card__desc">{{{ summary }}}</p>
+                        <a href="{{{ config.wwwroot }}}/course/view.php?id={{{ id }}}" class="offer-card__btn">
+                            Ingresar <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="offer-card__footer" style="background-color: {{{ color }}};">
+                        <span class="offer-card__title">{{{ fullname }}}</span>
+                        <i class="fas fa-arrow-right offer-card__arrow"></i>
+                    </div>
+                </div>
+                {{/coursecards}}
+            </div>
+        </div>
+
+        <!-- Contenido Oculto Obligatorio de Moodle -->
+        <div id="hidden-main-content" style="display:none;">
+            {{{ output.main_content }}}
+        </div>
+
+        {{> theme_moove/footer }}
+    </div>
+    {{{ output.standard_after_main_region_html }}}
+</div>
+
+</body>
+</html>
+{{#js}}
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+    Drawer.init();
+    M.util.js_complete('theme_boost/loader');
+});
+{{/js}}

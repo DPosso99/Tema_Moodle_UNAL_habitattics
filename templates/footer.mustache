@@ -1,0 +1,203 @@
+{{! theme_moove/footer.mustache (CORREGIDO v5 - Restaurado HTML + JS Final) }}
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_moove/footer
+
+    Page footer.
+
+    Example context (json):
+    {
+        "output": {
+            "page_doc_link": "Help and documentation",
+            "supportemail": "<a href=\"#\">Contact site support</a>",
+            "has_popover_links": true,
+            "services_support": "Services and support",
+            "login_info": "You are logged in as cute kitten",
+            "moodle_release": "90210"
+        }
+    }
+}}
+
+<footer id="page-footer">
+    <div class="moove-container-fluid footer-columns">
+        <div class="row">
+            <div class="col-md-4 column-left">
+                {{# output.supportemail }}<div class="supportemail">{{{ output.supportemail }}}</div>{{/ output.supportemail }}
+                <div class="footer-contact-links mt-2">
+                    <a href="mailto:adminhabitattics@proyectohabitattic.site" class="text-light d-inline-block mr-3">
+                        <i class="fa fa-envelope"></i> E-mail: adminhabitattics@proyectohabitattic.site
+                    </a>
+                    <a href="https://wa.me/573156727930" target="_blank" class="text-light d-inline-block ml-3">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                  
+                </div>
+                {{{ output.login_info }}}
+            </div>
+            <div class="col-md-4 column-center">
+                <img src="/theme/moove/pix/logo.svg"
+                alt="Logo de la u"
+                class="d-block mx-auto"
+                style="max-width: 100%; height: auto; margin-top: 50px">
+
+                
+            </div>
+            <div class="col-md-4 column-right">
+              <div class="text-center text-light p-3">
+                <h5 class="mb-2">Escuela del Hábitat</h5>
+                <p class="mb-2"><strong>Semillero Chagra</strong></p>
+                <p class="mb-1">Profesor encargado:<br><strong>Juan Carlos Ceballos Guerra</strong></p>
+                <p class="mb-3">Desarrollado por:<br><strong>David Julián Taimal</strong></p>
+                <p class="mb-0"><strong>Universidad Nacional de Colombia</strong></p>
+              </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer-content-debugging footer-dark bg-dark text-light">
+        <div class="moove-container-fluid footer-dark-inner">
+            {{{ output.debug_footer_html }}}
+        </div>
+    </div>
+    <div data-region="footer-container-popover">
+        {{#output.has_communication_links}}<button onclick="window.open('{{output.communication_url}}', '_blank', 'noreferrer')" class="btn btn-icon bg-primary text-white icon-no-margin btn-footer-communication" aria-label="{{#str}}communicationroomlink, course{{/str}}">{{#pix}}t/messages-o, core{{/pix}}</button>{{/output.has_communication_links}}
+        <!-- Botón de Accesibilidad Flotante -->
+        <button class="btn btn-icon icon-no-margin btn-accessibility-float" data-action="accessibility-toggle" aria-label="{{#str}}accessibility:fontsize, theme_moove{{/str}}" title="Opciones de accesibilidad">
+            <i class="fa fa-universal-access" aria-hidden="true"></i>
+        </button>
+        <!-- Popover de Accesibilidad -->
+        <div id="accessibility-popover" class="accessibility-popover-content" style="display: none;">
+            <div class="popover-header">
+                <span>Accesibilidad</span>
+                <button class="close-popover" data-action="close-accessibility">&times;</button>
+            </div>
+            <div class="popover-body">
+                <div class="accessibility-option">
+                    <span class="option-label">Tamaño de fuente</span>
+                    <div class="option-buttons">
+                        <a class="btn btn-sm btn-outline-secondary" id="fontsize_dec" data-action="decrease" title="{{#str}}accessibility:decreasefont, theme_moove{{/str}}">A-</a>
+                        <a class="btn btn-sm btn-outline-secondary" id="fontsize_reset" data-action="reset" title="{{#str}}accessibility:resetfont, theme_moove{{/str}}">A</a>
+                        <a class="btn btn-sm btn-outline-secondary" id="fontsize_inc" data-action="increase" title="{{#str}}accessibility:increasefont, theme_moove{{/str}}">A+</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-content-popover container" data-region="footer-content-popover">
+        {{# output.has_popover_links }}
+            <div class="footer-section p-3 border-bottom">
+                {{# output.page_doc_link }}<div>{{{ output.page_doc_link }}}</div>{{/ output.page_doc_link }}
+                {{# output.services_support_link }}<div>{{{ output.services_support_link }}}</div>{{/ output.services_support_link }}
+            </div>
+        {{/ output.has_popover_links }}
+        
+    </div>
+    
+    
+</footer>
+
+{{! --- INICIO Script Modo Oscuro (Navbar) y Estado Activo Link --- }}
+<script>
+(function() {
+    // --- Funciones Modo Oscuro ---
+    function toggleDarkModeNavbar() {
+        document.body.classList.toggle('darkmode');
+        localStorage.setItem('themeMode', document.body.classList.contains('darkmode') ? 'dark' : 'light');
+    }
+    function applyInitialDarkMode() {
+        const savedMode = localStorage.getItem('themeMode');
+        if (savedMode === 'dark') document.body.classList.add('darkmode');
+        else document.body.classList.remove('darkmode');
+    }
+    // --- Fin Funciones Modo Oscuro ---
+
+    // --- INICIO: Función para Estado Activo "Cursos Disponibles" ---
+    function handleNavbarActiveLink() {
+        const coursesLink = document.getElementById('nav-courses-available');
+        const basePath = (typeof M !== 'undefined' && M.cfg && M.cfg.wwwroot)
+                       ? M.cfg.wwwroot.replace(/^https?:\/\/[^\/]+/, '')
+                       : '';
+        const targetPath = basePath + '/course/index.php';
+
+        if (coursesLink && window.location.pathname.startsWith(targetPath)) {
+             coursesLink.classList.add('active');
+        } else if (coursesLink) {
+             coursesLink.classList.remove('active');
+        }
+    }
+    // --- FIN: Función Estado Activo ---
+
+    // Ejecutar al cargar el DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        applyInitialDarkMode();
+        handleNavbarActiveLink();
+
+        // Listener para botón modo oscuro de la NAVBAR
+        const navbarToggleBtn = document.getElementById('darkmode-toggle');
+        if (navbarToggleBtn) {
+            navbarToggleBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                toggleDarkModeNavbar();
+            });
+        }
+        // El botón de frontpage (#darkmodeBtn) se maneja en frontpage.php
+
+        // --- INICIO: Accesibilidad Flotante ---
+        const accessibilityBtn = document.querySelector('[data-action="accessibility-toggle"]');
+        const accessibilityPopover = document.getElementById('accessibility-popover');
+        const closePopoverBtn = document.querySelector('[data-action="close-accessibility"]');
+
+        if (accessibilityBtn && accessibilityPopover) {
+            // Toggle popover
+            accessibilityBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const isVisible = accessibilityPopover.style.display !== 'none';
+                accessibilityPopover.style.display = isVisible ? 'none' : 'block';
+                accessibilityBtn.classList.toggle('active', !isVisible);
+            });
+
+            // Cerrar con botón X
+            if (closePopoverBtn) {
+                closePopoverBtn.addEventListener('click', function() {
+                    accessibilityPopover.style.display = 'none';
+                    accessibilityBtn.classList.remove('active');
+                });
+            }
+
+            // Cerrar al hacer clic fuera
+            document.addEventListener('click', function(e) {
+                if (!accessibilityPopover.contains(e.target) && !accessibilityBtn.contains(e.target)) {
+                    accessibilityPopover.style.display = 'none';
+                    accessibilityBtn.classList.remove('active');
+                }
+            });
+        }
+        // --- FIN: Accesibilidad Flotante ---
+    });
+})();
+</script>
+{{! --- FIN Scripts --- }}
+
+{{{ output.standard_end_of_body_html }}}
+
+{{#js}}
+    require(['theme_moove/accessibilitybar'], function(AccessibilityBar) {
+        AccessibilityBar.init();
+    });
+{{/js}}

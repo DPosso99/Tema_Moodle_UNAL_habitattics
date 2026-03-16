@@ -1,0 +1,232 @@
+// _login.scss (MODIFICADO v6 - Centrar contenido columna derecha)
+
+// En la página de login no hay navbar fija — neutralizar margin-top del body
+#page-login-index,
+#page-login-signup {
+    &.body-login-page,
+    body& {
+        margin-top: 0 !important;
+    }
+}
+
+// Neutralizar margin-top del body en cualquier página de login
+body.path-login {
+    margin-top: 0 !important;
+}
+
+.path-login {
+    #page { /* ... */ }
+    .login-identityprovider-btn.facebook { /* ... */ }
+    // body { /* ... */ }
+}
+
+#page-login-index {
+    .login-container {
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+        width: 100% !important; // Forzar ancho contenedor
+        max-width: 100% !important; // Forzar ancho contenedor
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+    }
+
+    .loginform {
+        opacity: 0.9;
+        background-color: rgba(253, 254, 254, 0.9);
+        color: inherit;
+        padding: 2rem;
+        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+        border-radius: 0.5rem;
+        margin: 0;
+        width: 90%;
+        max-width: 450px;
+
+        &.hastwocolumns {
+            max-width: 900px; // Ancho ajustado
+
+            .right-column {
+                border-left-color: $gray-300;
+
+                // --- Modificaciones para Centrar ---
+                .column-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center; // Centra los bloques hijos horizontalmente
+                    justify-content: center;
+                    height: 100%;
+                    text-align: center;  // Centra el texto DENTRO de los bloques hijos
+
+                    // Ajustar ancho de secciones internas para mejorar centrado visual
+                    .login-identityproviders,
+                    #guestlogin {
+                        width: 100%; // Pueden ocupar el ancho disponible...
+                        max-width: 280px; // ...pero limitamos su ancho máximo (ajusta si es necesario)
+                        margin-bottom: 1rem; // Añadir espacio inferior
+                    }
+
+                    // Contenedor del menú de idioma y cookies
+                    .d-flex.mt-2 {
+                         justify-content: center; // Centrar contenido del flex container
+                         width: 100%;
+                         max-width: 280px; // Misma anchura que los botones
+                         flex-wrap: wrap; // Permitir que se envuelvan si no caben
+
+                         // Quitar margen automático del botón de cookies para que flex lo centre
+                         .btn-link.ml-auto {
+                             margin-left: 0 !important; // Anular ml-auto
+                             margin-top: 0.5rem; // Añadir espacio si se envuelve debajo
+                         }
+                         // Centrar el menú de idioma
+                         .login-languagemenu {
+                             margin-right: 0.5rem; // Pequeño espacio
+                         }
+                    }
+                }
+                // --- Fin Modificaciones ---
+            }
+        }
+
+        // --- Restaurar Estilos Predeterminados ---
+        .form-control::placeholder { color: inherit; }
+        .form-control { background-color: #fff; border-color: $gray-400; color: inherit; }
+        a { color: $brand-primary; &:hover { color: darken($brand-primary, 10%); } }
+        // Enlace 'Olvidó contraseña' dentro de la caja blanca necesita color normal
+        .login-form-forgotpassword a { color: $brand-primary; &:hover { color: darken($brand-primary, 10%); } }
+        .login-heading, label:not(.sr-only) { color: inherit; }
+        .login-divider { border-top-color: $gray-300; margin: 1rem auto; width: 80%; max-width: 250px; } // Centrar y limitar divisor
+        // --- Fin Restaurar Estilos ---
+
+        .left-column { padding-right: 2rem; }
+        .right-column { padding-left: 2rem; } // .column-content está definido arriba
+    }
+}
+
+#page-login-signup { /* ... */ }
+
+// --- Media Queries ---
+@include media-breakpoint-down(md) {
+    #page-login-index {
+        #page { padding-top: 1rem; }
+        .login-container {
+             padding-top: 1rem; padding-bottom: 1rem; min-height: auto;
+            .loginform {
+                width: 95%; padding: 1.5rem;
+                &.hastwocolumns {
+                     max-width: none;
+                     .right-column {
+                         border-left: none; padding-left: 0;
+                         .column-content {
+                            // En móvil quizás no limitamos el ancho interno tanto
+                             .login-identityproviders,
+                             #guestlogin { max-width: 100%; }
+                             .d-flex.mt-2 { max-width: 100%; justify-content: space-between; } // Opcional: Separar en móvil
+                             .btn-link.ml-auto { margin-left: auto !important; margin-top: 0;} // Restaurar margen
+                         }
+                     }
+                }
+                .left-column { padding-right: 0; }
+                 // Mover borde aquí para que se aplique en una columna también en móvil si es necesario
+                .right-column { /* Estilos móvil como estaban... */ }
+            }
+        }
+    }
+    #page-login-signup #page-content { /* ... */ }
+}
+
+// === ESTILOS PERSONALIZADOS LOGIN ===
+
+// Fondo y contenedor
+.login-page {
+  height: 100vh;
+  background-image: url([[pix:theme|background]]);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Be Vietnam Pro", sans-serif;
+
+  // Cancelar el margin-top del body (puesto para la navbar fija)
+  // En login no hay navbar, así que compensamos aquí
+  margin-top: -50px;
+  padding-top: 50px;
+}
+
+.login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+  z-index: 0;
+}
+
+.login-container {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+
+  .logo {
+    margin-bottom: 2rem;
+
+    img { max-width: 150px; }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-control {
+    height: 50px;
+    padding: 0 1rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+  }
+
+  .btn-primary {
+    background-color: #677D29;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+
+    &:hover { background-color: #556722; }
+  }
+
+  .login-divider {
+    margin: 2rem 0;
+    border-top: 1px solid #ccc;
+  }
+
+  .text-muted,
+  a {
+    color: #060100;
+    font-size: 0.9rem;
+  }
+}
+
+// Login - color verde en enlaces
+.page-login-index .loginform a,
+.page-login-index a,
+.login-container a {
+  color: #677D29 !important;
+}

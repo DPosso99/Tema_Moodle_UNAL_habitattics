@@ -1,0 +1,74 @@
+{{! theme/moove/templates/navbar.mustache (MODIFICADO v5 - Añadido ID para JS) }}
+<nav class="navbar fixed-top navbar-light bg-white navbar-expand shadow" aria-label="{{#str}}sitemenubar, admin{{/str}}">
+
+    <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 border-0" data-toggler="drawers" data-action="toggle" data-target="theme_moove-drawers-primary">
+        <span class="navbar-toggler-icon"></span>
+        <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
+    </button>
+
+    <a href="{{{ config.homeurl }}}" class="navbar-brand d-none d-md-flex align-items-center m-0 mr-4 p-0 aabtn">
+    <img src="{{{ config.wwwroot }}}/theme/moove/pix/logo.svg" class="logo mr-1" alt="{{sitename}}">
+    </a>
+
+    {{#primarymoremenu}}
+        <div class="primary-navigation">
+            {{! Renderiza Home, Dashboard, Mis Cursos, etc. desde la navegación de Moodle }}
+            {{> core/moremenu}}
+        </div>
+    {{/primarymoremenu}}
+
+    {{! --- Modificación: Añadir enlace "Cursos Disponibles" --- }}
+    <ul class="navbar-nav d-none d-md-flex my-1 px-1">
+        <li class="nav-item" role="none">
+            {{! --- Modificación: Añadido ID ---}}
+            <a role="menuitem" class="nav-link" id="nav-courses-available" href="{{{ config.wwwroot }}}/course/index.php" title="{{#str}}availablecourses{{/str}}">
+            {{! --- Fin Modificación --- }}
+                {{#str}} availablecourses {{/str}}
+            </a>
+        </li>
+        {{{ output.page_heading_menu }}}
+    </ul>
+    {{! --- Fin Modificación --- }}
+
+
+    <div id="usernavigation" class="navbar-nav ml-auto">
+        <div class="navbarcallbacks">
+            {{{ output.get_navbar_callbacks_data }}}
+        </div>
+        {{# output.search_box }}
+            {{{ output.search_box }}}
+        {{/output.search_box}}
+
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{#str}}langmenu, theme_moove{{/str}}">
+                <i class="icon fa fa-language"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+                {{{ output.language_menu }}} {{! Volvimos a este }}
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#" id="darkmode-toggle" class="nav-link" title="{{#str}}darkmode, theme_moove{{/str}}">
+                <i class="icon fa fa-moon"></i>
+            </a>
+        </div>
+
+        {{{ output.navbar_plugin_output }}}
+        <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+            {{#usermenu}}
+                {{> core/user_menu }}
+            {{/usermenu}}
+        </div>
+        {{{ output.edit_switch }}}
+    </div>
+</nav>
+
+{{#secondarymoremenu}}
+    <div class="secondary-navigation d-print-none moove">
+        <div class="moove-container-fluid">
+            {{> core/moremenu}}
+        </div>
+    </div>
+{{/secondarymoremenu}}
+
+{{> theme_moove/primary-drawer-mobile }}

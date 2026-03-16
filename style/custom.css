@@ -1,0 +1,169 @@
+#frontpage-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#frontpage-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  object-fit: cover;
+}
+
+#frontpage-video-wrapper .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 1, 0, 0.7); /* Degradado oscuro con color secundario */
+  z-index: 2;
+}
+
+#frontpage-video-wrapper .content {
+  position: relative;
+  z-index: 3;
+  color: white;
+  text-align: center;
+  padding-top: 20vh;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+#frontpage-video-wrapper .content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+#frontpage-video-wrapper .content p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+#frontpage-video-wrapper .buttons {
+  margin-top: 2rem;
+}
+
+#frontpage-video-wrapper .btn {
+  margin: 0 10px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+.btn-primary {
+  background-color: #73AF00;
+  color: white;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #060100;
+  border: none;
+}
+
+.frontpage-video-wrapper {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#frontpage-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+.frontpage-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(6, 1, 0, 0.6); /* tu color secundario con transparencia */
+    z-index: 2;
+}
+
+.frontpage-content {
+    position: relative;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.frontpage-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.frontpage-content p {
+    font-size: 1.125rem;
+}
+
+.frontpage-content .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+/* Estilo para la barra superior */
+.moove-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.moove-header.dark-mode {
+    background-color: #1e1e2f;
+    border-bottom: 1px solid #333;
+}
+
+.moove-header .header-right a {
+    margin-left: 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+.moove-header.dark-mode .header-right a {
+    color: #ffffff;
+}
+
+.moove-header .header-right a img {
+    width: 24px;
+    height: 24px;
+}
+
+.moove-header .header-right a i {
+    font-size: 20px;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode a {
+    color: #bb86fc;
+}
+
+body.dark-mode .navbar {
+    background-color: #1f1f1f;
+    border-color: #333333;
+}

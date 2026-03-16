@@ -1,0 +1,521 @@
+/* Estilos específicos para navbar de frontpage */
+.pagelayout-frontpage {
+    .navbar.fixed-top {
+        #usernavigation {
+            .lang-switch {
+                img {
+                    width: 20px !important; /* Reducir tamaño del ícono SVG de idioma */
+                    height: 20px !important;
+                }
+            }
+        }
+    }
+}
+
+.pagelayout-frontpage,
+.pagelayout-coursecategory {
+    .dashboard-card {
+        position: relative;
+        width: calc(33.33% - 2rem) !important;
+        max-width: calc(33.33% - 2rem) !important;
+        margin: 1rem;
+
+        &.dimmed .card-img::after {
+            content: '';
+            position: absolute;
+            background-color: rgba(0,0,0,0.5);
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            border-top-left-radius: .5rem;;
+            border-top-right-radius: .5rem;;
+        }
+
+        .card-img.dashboard-card-img {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .dashboard-card-footer {
+            border-radius: .5rem;
+        }
+
+        .card-body {
+            padding: .8rem;
+        }
+
+        .customfields {
+            .customfield {
+                font-size: 80%;
+                margin-bottom: .25rem;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                .customfieldname,
+                .customfieldseparator {
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .enrolmenticons {
+            position: absolute;
+            bottom: 8px;
+            right: 0;
+
+            .enrolmenticon {
+                padding: 4px 8px;
+                background-color: #fff;
+                color: $brand-primary;
+                border-radius: .5rem;
+                margin: 0 4px;
+
+                .icon {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .course-contacts {
+            padding: 0 0.8rem 0.8rem 0.8rem;
+
+            .contact {
+                display: flex;
+
+                &:not(:first-of-type) {
+                    margin-top: .4rem;
+                }
+
+                img {
+                    width: 48px;
+                    height: 48px;
+                    border: 1px solid $gray-300;
+                }
+
+                p {
+                    margin-left: .4rem;
+                    margin-bottom: 0;
+
+                    &.role {
+                        color: $gray-900;
+                        font-size: 80%;
+                    }
+                }
+            }
+        }
+
+        .dashboard-card-footer {
+            padding: 0 .8rem .8rem .8rem;
+        }
+    }
+}
+
+#page-site-index.notloggedin {
+    #mooveslideshow {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding: 0;
+
+        .carousel-inner {
+            border-radius: .5rem;
+        }
+
+        .caption {
+            text-align: center;
+        }
+
+        .carousel-indicators {
+            background-color: rgba(0, 0, 0, .6);
+            margin-bottom: 15px;
+            height: 20px;
+            border-bottom-left-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, .6);
+            margin: 0;
+            bottom: 35px;
+            padding: 15px;
+            border-top-left-radius: .5rem;
+            border-top-right-radius: .5rem;
+        }
+
+        .carousel-fade .carousel-item {
+            opacity: 0;
+            transition-duration: .6s;
+            transition-property: opacity;
+        }
+
+        .carousel-fade  .carousel-item.active,
+        .carousel-fade  .carousel-item-next.carousel-item-left,
+        .carousel-fade  .carousel-item-prev.carousel-item-right {
+            opacity: 1;
+        }
+
+        .carousel-fade .active.carousel-item-left,
+        .carousel-fade  .active.carousel-item-right {
+            opacity: 0;
+        }
+
+        .carousel-fade  .carousel-item-next,
+        .carousel-fade .carousel-item-prev,
+        .carousel-fade .carousel-item.active,
+        .carousel-fade .active.carousel-item-left,
+        .carousel-fade  .active.carousel-item-prev {
+            transform: translateX(0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    #feature {
+        background-color: #f1f6fd;
+        padding: 4rem 0;
+        margin-left: -15px;
+        margin-right: -15px;
+
+        .card {
+            border: 1px solid #e2e8f0;
+        }
+
+        .icon-lg {
+            width: 6rem;
+            height: 6rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+
+    #numbers {
+        padding: 5.625rem 0;
+
+        .sectionheading p {
+            line-height: 1;
+        }
+
+        .user-rating-box-area {
+            .rate-box {
+                box-shadow: 0 6px 0 rgb(23 135 252 / 65%);
+                border-radius: 25px;
+                padding: 30px 40px 35px 40px;
+
+                &.bg-primary {
+                    background-color: #1787fc !important;
+                }
+
+                &.bg-cloudburst {
+                    background-color: #213053;
+                }
+
+                h3 {
+                    color: #fff;
+                    font-size: 60px;
+                    font-weight: 600;
+                    font-style: normal;
+                    letter-spacing: -1px;
+                    line-height: 66px;
+                    margin-bottom: 30px;
+                }
+
+                p {
+                    color: #fff;
+                    font-size: 17px;
+                    font-weight: 400;
+                    font-style: normal;
+                    letter-spacing: normal;
+                    line-height: 30px;
+                    margin-bottom: 0;
+                }
+            }
+
+            .rate-box-2 {
+                margin-top: 0;
+                box-shadow: 0 6px 0 rgb(33 48 83 / 65%);
+            }
+        }
+    }
+
+    #topofscroll {
+        background-color: #f1f6fd;
+        margin-left: -15px;
+        margin-right: -15px;
+
+        #page-content,
+        #region-main {
+            background-color: #f1f6fd;
+        }
+
+        #page-content {
+            padding-left: 0;
+            padding-right: 0;
+            margin-bottom: 0;
+        }
+
+        #frontpage-available-course-list {
+            h2 {
+                text-align: center;;
+            }
+        }
+    }
+
+    #faq {
+        padding: 4rem 0;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .accordion {
+            width: 100%;
+
+            .card {
+                margin-top: 1rem;
+                border-radius: .5rem;
+
+                &:first-of-type {
+                    margin-top: 0;
+                }
+
+                .card-header {
+                    background-color: $brand-primary;
+
+                    .btn-link {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .pagelayout-frontpage .dashboard-card,
+    .pagelayout-coursecategory .dashboard-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 1rem 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    #page-site-index.notloggedin {
+        .footer-content-popover .footer-section {
+            text-align: center;
+        }
+
+        .column-right .footer-title {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    #page-site-index.notloggedin {
+        #numbers {
+            .rate-box-2 {
+                margin-top: 1rem !important;
+            }
+        }
+    }
+}
+
+/* ========================================= */
+/* === PERSONALIZACIÓN PROYECTO HÁBITAT  === */
+/* ========================================= */
+
+/* 1. Ocultar secciones nativas de Moove que no usaremos en Home */
+#page-site-index {
+    #numbers, 
+    #mooveslideshow, 
+    #feature, 
+    #faq {
+        display: none !important;
+    }
+}
+
+/* 2. Banner Héroe (Texto Izq + Video Der) */
+.hero-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 140px 5% 60px 5%; /* Padding superior para compensar header fijo */
+    background: #fff;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 40px;
+    z-index: 2;
+
+    h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 3.5rem;
+        line-height: 1.1;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1.5rem;
+
+        span {
+            color: #64a44e; /* Verde institucional */
+        }
+    }
+
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        max-width: 90%;
+    }
+}
+
+.btn-hero {
+    background-color: #64a44e;
+    color: #fff !important;
+    padding: 15px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(100, 164, 78, 0.3);
+    transition: transform 0.2s;
+
+    &:hover {
+        transform: translateY(-2px);
+        background-color: darken(#64a44e, 5%);
+    }
+}
+
+.hero-video {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+
+    .video-mask {
+        width: 100%;
+        max-width: 600px;
+        height: 380px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 20px 20px 0px #f0f7ed; /* Sombra sólida decorativa */
+        position: relative;
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+/* 3. Tarjetas de Oferta Académica (Offer Cards) */
+.offer-section {
+    padding: 2rem 5% 5rem 5%;
+    background-color: #fff;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.offer-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid #f0f0f0;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .offer-footer {
+        padding: 1.2rem;
+        color: white;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+    }
+}
+
+/* Responsive para Banner */
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        padding-top: 100px;
+        text-align: center;
+    }
+    .hero-text {
+        padding-right: 0;
+        padding-top: 2rem;
+    }
+    .hero-video {
+        justify-content: center;
+        width: 100%;
+    }
+    .video-mask {
+        width: 100%;
+        height: 250px;
+        box-shadow: 10px 10px 0px #f0f7ed;
+    }
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ... (tu código anterior del banner y tarjetas) ... */
+
+/* === OCULTAR LISTA DE CURSOS POR DEFECTO Y DUPLICADOS === */
+
+/* Oculta la lista estándar de Moodle en la portada */
+.frontpage-course-list-all,
+#frontpage-available-course-list,
+.coursebox {
+    display: none !important;
+}
+
+/* Oculta el contenedor principal obligatorio que renderizamos oculto */
+#hidden-main-content {
+    display: none !important;
+}
+
+/* Asegura que NUESTRA sección de oferta sí se vea */
+#oferta-academica {
+    display: block !important;
+}

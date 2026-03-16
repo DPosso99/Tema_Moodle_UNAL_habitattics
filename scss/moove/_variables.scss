@@ -1,0 +1,35 @@
+// Fuente principal
+$font-family-base: "Be Vietnam Pro", sans-serif !default;
+
+// Color principal unificado
+$brand-primary: #677D29 !default;
+$green: #677D29 !default;
+$gold: #f7bf29 !default;
+$background: #f2f3f7;
+
+$secondary-menu-color: $brand-primary !default;
+
+// Sobreescribir variables de Bootstrap para color primario
+$theme-colors: (
+  "primary": #677D29,
+  "success": #677D29,
+  "info": #677D29
+) !default;
+
+$moodle-color: #f98012 !default;
+$facebook-color: #4167B2 !default;
+$moodle-color: #f98012 !default;
+$twitter-color: #55acee !default;
+$youtube-color: #cc181e !default;
+$linkedin-color: #007bb5 !default;
+$instagram-color: #8a3ab9 !default;
+$whatsapp-color: #25d366 !default;
+$telegram-color: #0088cc !default;
+
+// Colores principales
+$primary: #677D29; // Color de hover y bordes
+$navbar-bg: #ffffff; // Fondo del navbar
+$navbar-border: #dee2e6; // Color del borde
+
+// Sombras
+$box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05); // Sombra suave

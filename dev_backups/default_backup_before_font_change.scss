@@ -1,0 +1,103 @@
+@import "moove/transitions";
+@import "moove/variables";
+@import "../../boost/scss/preset/default";
+@import "moove/general";
+@import "moove/pages";
+@import "moove/blocks";
+@import "moove/drawers";
+@import "moove/navbar";
+@import "moove/footer";
+@import "moove/breadcrumb";
+@import "moove/course";
+@import "moove/mixins/accessibilityfontsize";
+@import "moove/accessibilitybar";
+@import "moove/accessibilitystyles";
+@import "moove/login";
+@import "moove/mydashboard";
+@import "moove/frontpage";
+@import "moove/profile";
+@import "moove/enrol";
+// Fondo y contenedor
+.login-page {
+  height: 100vh;
+  background-image: url([[pix:theme|background]]);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+  z-index: 0;
+}
+
+.login-container {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+// Logo
+.login-container .logo {
+  margin-bottom: 2rem;
+}
+.login-container .logo img {
+  max-width: 150px;
+}
+
+// Formulario
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-container .form-control {
+  height: 50px;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
+.login-container .btn-primary {
+  background-color: #73AF00;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.login-container .btn-primary:hover {
+  background-color: #5a9200;
+}
+
+.login-container .login-divider {
+  margin: 2rem 0;
+  border-top: 1px solid #ccc;
+}
+
+.login-container .text-muted,
+.login-container a {
+  color: #060100;
+  font-size: 0.9rem;
+}
+

@@ -1,0 +1,380 @@
+// Contenido original de _general.scss
+body {
+    background-color: $background !important; /* stylelint-disable-line */
+}
+
+#page-header {
+    margin: 1.25rem auto;
+    padding: 0;
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    #page-navbar {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+    }
+
+    .courseheader {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    .page-header-headings {
+        background-color: initial;
+    }
+}
+
+.moove-container-fluid {
+    padding: 0;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card {
+    border: none;
+    -webkit-box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+    box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+}
+
+.moove-container-fluid,
+.container-fluid {
+    max-width: 85%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container-fluid.tertiary-navigation {
+    max-width: 100%;
+}
+
+a {
+    transition: all 0.25s ease-out;
+    color: $brand-primary;
+}
+
+.dropdown-item:active,
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item:focus-within {
+    background-color: darken($brand-primary, 10%);
+}
+
+.shadow {
+    box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%) !important;
+}
+
+.loading-overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4000;
+    padding: 10% 0;
+    background-color: #fff;
+
+    .text {
+        text-align: center;
+        color: $brand-primary;
+    }
+
+    .loader {
+        position: relative;
+        width: 75px;
+        height: 100px;
+        margin: 0 auto;
+
+        .bar {
+            position: absolute;
+            bottom: 0;
+            width: 10px;
+            height: 50%;
+            background: $brand-primary;
+            transform-origin: center bottom;
+            box-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
+
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    left: ($i - 1) * 15px;
+                    transform: scale(1, $i*.2);
+                    animation: barUp#{$i} 4s infinite;
+                }
+            }
+
+        }
+
+        .ball {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background: $brand-primary;
+            border-radius: 50%;
+            animation: ball 4s infinite;
+        }
+    }
+
+    @keyframes ball {
+        0% { transform: translate(0, 0); }
+        5% { transform: translate(8px, -14px); }
+        10% { transform: translate(15px, -10px); }
+        17% { transform: translate(23px, -24px); }
+        20% { transform: translate(30px, -20px); }
+        27% { transform: translate(38px, -34px); }
+        30% { transform: translate(45px, -30px); }
+        37% { transform: translate(53px, -44px); }
+        40% { transform: translate(60px, -40px); }
+        50% { transform: translate(60px, 0); }
+        57% { transform: translate(53px, -14px); }
+        60% { transform: translate(45px, -10px); }
+        67% { transform: translate(37px, -24px); }
+        70% { transform: translate(30px, -20px); }
+        77% { transform: translate(22px, -34px); }
+        80% { transform: translate(15px, -30px); }
+        87% { transform: translate(7px, -44px); }
+        90% { transform: translate(0, -40px); }
+        100% { transform: translate(0, 0); }
+    }
+
+    @keyframes barUp1 { 0%, 40% { transform: scale(1, .2); } 50%, 90% { transform: scale(1, 1); } 100% { transform: scale(1, .2); } }
+    @keyframes barUp2 { 0%, 40% { transform: scale(1, .4); } 50%, 90% { transform: scale(1, .8); } 100% { transform: scale(1, .4); } }
+    @keyframes barUp3 { 0%, 100% { transform: scale(1, .6); } }
+    @keyframes barUp4 { 0%, 40% { transform: scale(1, .8); } 50%, 90% { transform: scale(1, .4); } 100% { transform: scale(1, .8); } }
+    @keyframes barUp5 { 0%, 40% { transform: scale(1, 1); } 50%, 90% { transform: scale(1, .2); } 100% { transform: scale(1, 1); } }
+}
+
+.continuebutton {
+    margin-top: 1rem;
+    color: $brand-primary;
+    padding: 1rem;
+
+    a {
+        color: $brand-primary;
+        text-decoration: underline;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .pagelayout-standard #page.drawers .main-inner,
+    body.limitedwidth #page.drawers .main-inner,
+    #page.drawers .main-inner,
+    .moove-container-fluid,
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 85%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .header-maxwidth {
+        max-width: 100%;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .pagelayout-standard #page.drawers .main-inner,
+    body.limitedwidth #page.drawers .main-inner,
+    #page.drawers .main-inner,
+    .moove-container-fluid,
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 95%;
+    }
+}
+
+// ------------- INICIO CSS MODO OSCURO AÑADIDO -------------
+// --- Pegado desde frontpage.php ---
+
+/* ===== DARK MODE ===== */
+body.darkmode {
+  background: #1c1c1c;
+  color: #f1f1f1;
+
+  // Ajustar el fondo principal si Moove lo fuerza en otro elemento
+  #page-wrapper, // Contenedor principal
+  #page.drawers { // Contenedor de contenido con drawers
+      background-color: #1c1c1c !important; // Forzar fondo oscuro
+  }
+
+  // --- Estilos específicos modo oscuro para elementos generales ---
+  // (Añade aquí estilos para enlaces, párrafos, headings si es necesario)
+  // Ejemplo:
+  // a { color: #a3e066; } // Cambiar color de enlaces
+  // h1, h2, h3, h4, h5, h6 { color: #fff; } // Cambiar color de encabezados
+
+  // --- Estilos modo oscuro para elementos específicos de tu frontpage ---
+  // --- ¡¡¡OJO!!!: Estas reglas pueden necesitar ajustes para que funcionen
+  // --- fuera de la frontpage, ya que las clases/estructuras pueden ser diferentes ---
+  .topbar { // Esta clase es de tu topbar personalizada, no afectará la navbar principal
+    background: #333;
+    color: #f1f1f1;
+    .brand img {
+      filter: invert(1);
+    }
+  }
+  .hero { // Elemento específico de tu frontpage
+    background: #1c1c1c;
+  }
+  .video-wrapper video { // Específico de tu frontpage
+    background: #1c1c1c;
+    opacity: 0.9;
+  }
+  .hero-content { // Específico de tu frontpage
+    background: linear-gradient(90deg, rgba(115,175,0,1) 0%, rgba(0,0,0,1) 40%);
+    opacity: 0.8;
+    p { color: #ddd; }
+  }
+  .stats-section { // Específico de tu frontpage
+    background: #2b2b2b;
+    color: #f1f1f1;
+    h2 { color: #fff; }
+    p { color: #ccc; }
+  }
+  .stats-card { // Específico de tu frontpage
+    background: #3b3b3b;
+    h3 { color: #a3e066; }
+    span { color: #ccc; }
+  }
+  .main-content { // Esta clase podría ser muy genérica
+    color: #f1f1f1;
+  }
+  .custom-footer { // Footer personalizado de tu frontpage
+    background: #333;
+    color: #eee;
+    a { color: #eee; }
+  }
+  // --- Fin estilos específicos frontpage ---
+
+
+  // --- Estilos modo oscuro para componentes estándar de Moodle/Moove ---
+  // --- Es posible que necesites AÑADIR MÁS reglas aquí para que TODO se vea bien ---
+  .card { // Estilo oscuro para las tarjetas
+      background-color: #3b3b3b;
+      color: #f1f1f1;
+      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.4); // Sombra más oscura
+      // Ajustar colores internos de la tarjeta si es necesario
+      // .card-header, .card-body, .card-footer { ... }
+  }
+
+  #page-header { // Cabecera de página (título, etc.)
+      h1, h2, h3, h4, h5, h6 { // Encabezados dentro de la cabecera
+          color: #f1f1f1;
+      }
+      .breadcrumb-item a { // Enlaces del breadcrumb
+          color: #a3e066; // Verde claro para enlaces
+      }
+      .breadcrumb-item.active { // Elemento activo del breadcrumb
+          color: #ccc;
+      }
+  }
+
+  // Estilos para la navbar principal (la que modificamos)
+  .navbar.fixed-top {
+      background-color: #333 !important; // Fondo oscuro para navbar
+      border-color: #555 !important; // Borde más oscuro
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4) !important; // Sombra
+
+      // Enlaces de navegación principal
+      .primary-navigation .navigation .nav-link {
+          color: #eee; // Color claro para enlaces
+          &.active { color: #a3e066; } // Color primario claro para activo
+          &:hover, &:focus { color: #a3e066; background-color: #444; } // Hover
+      }
+
+      // Iconos de la derecha
+      #usernavigation {
+          .nav-link, .popover-region-toggle {
+              color: #ccc; // Color claro para iconos
+              &:hover, &[aria-expanded="true"] { color: #a3e066; }
+          }
+          // Iniciales usuario
+          .usermenu-container .usermenu .dropdown-toggle .userbutton .avatars .avatar .userinitials {
+              background-color: $brand-primary; // Mantener color primario? O cambiar?
+              color: #fff; // Letras blancas
+          }
+           // Switch modo edición
+          .editmode-switch-form label { color: #eee; }
+          // .custom-switch ... (ajustar colores del switch si es necesario)
+      }
+  }
+
+  // Barra secundaria (si se usa)
+  .secondary-navigation {
+       background-color: #444; // Fondo oscuro para secundaria
+       border-color: #555;
+       .moremenu .nav-tabs .nav-link {
+           color: #eee;
+           &.active { color: #a3e066; border-bottom-color: #a3e066; }
+           &:hover, &:focus { color: #a3e066; background-color: #555; }
+       }
+  }
+
+  // Menús desplegables (dropdowns)
+  .dropdown-menu {
+      background-color: #444;
+      border-color: #555;
+      .dropdown-item {
+          color: #eee;
+          &:hover, &:focus, &:active {
+              background-color: darken($brand-primary, 10%); // Mantener hover original o cambiar a #555?
+              color: #fff;
+          }
+      }
+      .dropdown-divider {
+          border-top-color: #555;
+      }
+  }
+
+   // Popovers (Notificaciones, etc.)
+   .popover-region-container {
+       background-color: #444;
+       border-color: #555;
+       color: #eee;
+       .popover-region-header-container { border-bottom-color: #555; }
+       .popover-region-content-container .content-item-container {
+           background-color: #444;
+           &.unread { background-color: #505050; }
+           &:hover { background-color: #555; }
+       }
+        .popover-region-footer-container { border-color: #555; }
+   }
+
+   // Cajones laterales (Drawers)
+   .drawer {
+       background-color: #333;
+       color: #eee;
+       // Ajustar enlaces y contenido dentro de los drawers
+   }
+
+   // Botones estándar
+    .btn-secondary { // Ejemplo para botón secundario
+        background-color: #555;
+        border-color: #666;
+        color: #eee;
+        &:hover { background-color: #666; border-color: #777; }
+    }
+    // Añadir estilos para .btn-primary, .btn-link, etc. si es necesario
+
+} // Fin de body.darkmode
+
+// ------------- FIN CSS MODO OSCURO AÑADIDO -------------

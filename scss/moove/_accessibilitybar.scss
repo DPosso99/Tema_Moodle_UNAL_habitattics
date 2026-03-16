@@ -1,0 +1,234 @@
+// =============================================
+// ACCESIBILIDAD - Botón Flotante con Popover
+// =============================================
+
+// Ocultar la barra superior antigua
+#accessibilitybar {
+    display: none !important;
+}
+
+// Botón flotante de accesibilidad
+.btn-accessibility-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #677D29, #7a9232);
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(103, 125, 41, 0.4);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    i {
+        font-size: 1.4rem;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, #556722, #677D29);
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(103, 125, 41, 0.5);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(103, 125, 41, 0.3);
+    }
+
+    &.active {
+        background: #556722;
+    }
+}
+
+// Popover de accesibilidad
+.accessibility-popover-content {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 280px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    z-index: 1049;
+    overflow: hidden;
+    animation: popoverFadeIn 0.25s ease-out;
+
+    .popover-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.25rem;
+        background: linear-gradient(135deg, #677D29, #7a9232);
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.95rem;
+
+        .close-popover {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            line-height: 1;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .popover-body {
+        padding: 1rem 1.25rem;
+    }
+
+    .accessibility-option {
+        margin-bottom: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .option-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .option-buttons {
+            display: flex;
+            gap: 0.5rem;
+
+            .btn {
+                flex: 1;
+                padding: 0.5rem;
+                font-weight: 600;
+                border-radius: 8px;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    background-color: #677D29;
+                    border-color: #677D29;
+                    color: #fff;
+                }
+            }
+        }
+
+        .color-buttons {
+            .color-btn {
+                width: 36px;
+                height: 36px;
+                flex: 0 0 36px;
+                padding: 0;
+                border-radius: 50%;
+                border: 3px solid #e0e0e0;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    transform: scale(1.15);
+                    border-color: #677D29;
+                }
+
+                &.color-default {
+                    background: linear-gradient(135deg, #fff 50%, #f5f5f5 50%);
+                }
+
+                &.color-2 {
+                    background-color: #ffffcc;
+                }
+
+                &.color-3 {
+                    background-color: #99ccff;
+                }
+
+                &.color-4 {
+                    background: #000;
+                    position: relative;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 10px;
+                        height: 10px;
+                        background: #ffff00;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes popoverFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+// Ya no necesitamos ajustar el margin del body porque no hay barra superior
+body.hasaccessibilitybar {
+    #page, #page.drawers {
+        margin-top: 70px; // Normal, sin espacio extra de la barra
+    }
+
+    .navbar.fixed-top {
+        top: 0; // Normal, sin offset
+    }
+
+    #accessibilitybar {
+        display: none !important;
+    }
+
+    .secondary-navigation.moove {
+        margin-top: 0;
+    }
+}
+
+// Responsive
+@media (max-width: 576px) {
+    .btn-accessibility-float {
+        bottom: 15px;
+        right: 15px;
+        width: 44px;
+        height: 44px;
+
+        i {
+            font-size: 1.2rem;
+        }
+    }
+
+    .accessibility-popover-content {
+        bottom: 70px;
+        right: 15px;
+        width: calc(100vw - 30px);
+        max-width: 300px;
+    }
+}
+
+// Ajustes cuando hay drawer abierto
+@include media-breakpoint-up(md) {
+    .jsenabled #page.drawers.show-drawer-right {
+        .btn-accessibility-float,
+        .accessibility-popover-content {
+            right: calc(var(--drawer-width) + 20px);
+        }
+    }
+}

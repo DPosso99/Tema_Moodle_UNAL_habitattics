@@ -1,0 +1,276 @@
+/* _navbar.scss - VERSIÓN FINAL (FIX MENU PRINCIPAL + SECUNDARIA NATIVA) */
+
+@import 'variables';
+
+/* ========================================= */
+/* === 1. TOPBAR PRINCIPAL (Header Fijo) === */
+/* ========================================= */
+.navbar.fixed-top {
+    background-color: #fff;
+    min-height: 60px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 10px; left: 10px; right: 10px;
+    width: calc(100% - 20px);
+    z-index: 1030;
+    margin: 0 !important;
+    padding: 0 1rem;
+    display: flex; align-items: center; justify-content: space-between;
+
+    /* LOGO */
+    .navbar-brand {
+        padding: 0 !important; margin-right: 1rem; height: 60px;
+        display: flex !important; align-items: center; flex-shrink: 0 !important;
+        min-width: 40px !important; opacity: 1 !important; visibility: visible !important;
+        background-image: none !important;
+        .logo { display: block !important; height: 40px !important; max-height: 40px !important; width: auto !important; min-width: 40px !important; object-fit: contain; }
+    }
+
+    /* NAV PRIMARIA */
+    .primary-navigation {
+        flex-grow: 1;
+        /* IMPORTANTE: Permitir que los dropdowns (Más) salgan de la caja */
+        overflow: visible !important; 
+        
+        .navigation {
+            height: 60px; display: flex; align-items: center;
+            .nav-link { 
+                color: #555; font-weight: 500; height: 100%; display: flex; align-items: center; padding: 0 1rem; white-space: nowrap; 
+                &:hover { color: #64a44e; } 
+                &.active { color: #64a44e; font-weight: 700; }
+                
+                /* Agregar íconos FontAwesome antes del texto */
+                &[data-key="home"]::before,
+                &[href*="redirect=0"]::before,
+                &[href$="/"]::before {
+                    font-family: "Font Awesome 6 Free";
+                    font-weight: 900;
+                    content: "\f015"; /* home icon */
+                    margin-right: 0.5rem;
+                }
+                
+                &[href*="/course/index.php"]::before {
+                    font-family: "Font Awesome 6 Free";
+                    font-weight: 900;
+                    content: "\f0ce"; /* th icon (grid) */
+                    margin-right: 0.5rem;
+                }
+                
+                &[data-key="mycourses"]::before,
+                &[href*="/my/courses.php"]::before {
+                    font-family: "Font Awesome 6 Free";
+                    font-weight: 900;
+                    content: "\f02d"; /* book icon */
+                    margin-right: 0.5rem;
+                }
+                
+                &[data-key="siteadminnode"]::before,
+                &[href*="/admin/search.php"]::before {
+                    font-family: "Font Awesome 6 Free";
+                    font-weight: 900;
+                    content: "\f013"; /* cog icon */
+                    margin-right: 0.5rem;
+                }
+            }
+            /* Ajuste para que el dropdown "Más" no se corte */
+            .dropdown-menu {
+                margin-top: 0;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            }
+        }
+    }
+
+    /* Custom Nav (Cursos disponibles) */
+    .custom-nav-links { 
+        display: flex; align-items: center; gap: 5px; height: 100%; 
+        .custom-nav-item { display: flex; align-items: center; color: #555; font-weight: 500; padding: 8px 12px; border-radius: 6px; height: 40px; white-space: nowrap; i { margin-right: 8px; color: #777; } &:hover { background-color: #f0f7ed; color: #64a44e; i { color: #64a44e; } } } 
+    }
+    
+    /* Menú Usuario */
+    #usernavigation { 
+        display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; height: 60px; 
+        
+        .lang-switch { display: flex; align-items: center; gap: 5px; margin-right: 10px; color: #555; }
+        
+        /* Ajustar tamaño del ícono de idioma */
+        #languageDropdown {
+            font-size: 1.2rem !important; /* Reducir tamaño del ícono */
+            
+            .icon {
+                font-size: 1.2rem !important;
+            }
+        }
+        
+        a[href*="login/index.php"] { background-color: #64a44e !important; color: #fff !important; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; } 
+    }
+}
+
+/* ========================================= */
+/* === 2. BARRA SECUNDARIA (NATIVA)      === */
+/* ========================================= */
+.secondary-navigation {
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: none;
+    position: fixed !important;
+    top: 85px !important; 
+    left: 10px !important;
+    right: 10px !important;
+    width: calc(100% - 20px) !important;
+    height: 45px !important;
+    z-index: 1029 !important;
+    margin: 0 !important;
+    padding: 0 0.5rem !important; 
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important; 
+
+    .moove-container-fluid { width: 100%; height: 100%; }
+    .moremenu {
+        height: 100%; margin-bottom: 0; display: flex; align-items: center;
+        .nav-item {
+            display: flex; align-items: center; height: 100%;
+            .nav-link {
+                color: #666; font-size: 0.9rem; padding: 0 1rem; height: 100%; display: flex; align-items: center; border-bottom: 2px solid transparent; 
+                &:hover, &:focus { color: #64a44e; background-color: rgba(0,0,0,0.02); }
+                &.active { color: #64a44e; font-weight: 700; border-bottom-color: #64a44e; }
+            }
+        }
+        .dropdown.nav-item {
+            .dropdown-toggle { font-weight: 600; color: #555; }
+            .dropdown-menu {
+                border-radius: 8px; border: 1px solid #e0e0e0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-top: 0;
+                .dropdown-item { padding: 10px 20px; &:hover { background-color: #f0f7ed; color: #64a44e; } &.active { background-color: #64a44e; color: white; } }
+            }
+        }
+    }
+}
+
+
+
+/* ========================================= */
+/* === 4. AJUSTES MÓVIL (Solo iconos)    === */
+/* ========================================= */
+@media (max-width: 767.98px) {
+    .navbar.fixed-top {
+        #usernavigation {
+            gap: 0.01rem !important; /* Reducir espacio entre iconos */
+            
+            .nav-item {
+                .nav-link {
+                    padding: 0.1rem !important; /* Compactar padding */
+                    font-size: 0.9rem; /* Iconos más pequeños */
+                }
+            }
+            
+            /* Ocultar selector de idioma en móvil para ganar espacio */
+            .nav-item:has(#languageDropdown), 
+            #languageDropdown { 
+                display: none !important; 
+            }
+            
+            /* Ocultar texto del usuario si existe */
+            .userbutton .usertext { display: none; }
+        }
+    }
+}
+
+/* MODO OSCURO */
+body.darkmode {
+    .navbar.fixed-top, .secondary-navigation {
+        background-color: #1a1a1a !important; border-color: #333 !important;
+        .nav-link, .custom-nav-item, .dropdown-toggle { color: #ccc !important; }
+        .dropdown-menu { background-color: #2a2a2a; border-color: #444; }
+        .dropdown-item { color: #ccc; &:hover { background-color: #333; } }
+    }
+}
+
+/* ========================================= */
+/* === 5. REORDENAMIENTO DE MENÚ (HOTFIX) === */
+/* ========================================= */
+/* Objetivo: Reemplazar 'Área personal' por 'Cursos disponibles' */
+
+.primary-navigation .navigation {
+    /* Habilitar control de orden en los items de la lista */
+    display: flex;
+
+    /* 1. Ocultar 'Área personal' (Dashboard) */
+    /* Selectores por URL y data-key común */
+    .nav-item[data-key="myhome"],
+    .nav-item[data-key="dashboard"],
+    .nav-link[href*="/my/index.php"],
+    /* Soporte con :has para contenedores li */
+    li.nav-item:has(a[href*="/my/index.php"]) {
+        display: none !important;
+    }
+
+    /* 2. Reordenamiento visual */
+    /* Movemos todos los elementos al final por defecto (orden 10) */
+    .nav-item, .nav-link {
+        order: 10;
+    }
+
+    /* POSICIÓN 1: Página Principal (Home) */
+    .nav-item[data-key="home"], 
+    li.nav-item:has(a[href$="/"]),
+    li.nav-item:has(a[href*="redirect=0"]) {
+        order: 1 !important;
+    }
+
+    /* POSICIÓN 2: Cursos Disponibles (El nuevo protagonista) */
+    /* Detectamos el item custom por su enlace */
+    li.nav-item:has(a[href*="/course/index.php"]),
+    .nav-link[href*="/course/index.php"] {
+        order: 2 !important;
+    }
+
+    /* POSICIÓN 3: Mis cursos */
+    .nav-item[data-key="mycourses"],
+    li.nav-item:has(a[href*="/my/courses.php"]) {
+        order: 3 !important;
+    }
+
+    /* POSICIÓN 4: Administración del sitio */
+    .nav-item[data-key="siteadminnode"],
+    li.nav-item:has(a[href*="/admin/search.php"]) {
+        order: 4 !important;
+    }
+}
+
+/* ========================================= */
+/* === BOTÓN "INGRESAR" (No autenticado) === */
+/* ========================================= */
+.usermenu-container {
+    a.btn.btn-primary {
+        background-color: #64a44e !important;
+        border-color: #64a44e !important;
+        color: #fff !important;
+        font-weight: 600;
+        padding: 0.5rem 1.5rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+        
+        &:hover {
+            background-color: #558f42 !important;
+            border-color: #558f42 !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(100, 164, 78, 0.3);
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .usermenu-container {
+        a.btn.btn-primary {
+            font-size: 0.85rem;
+            padding: 0.4rem 1rem;
+        }
+    }
+}
+

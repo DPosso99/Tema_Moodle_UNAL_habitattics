@@ -1,0 +1,356 @@
+// =============================================================
+// MODO OSCURO — Proyecto Hábitat TICs
+// Centraliza todas las reglas de body.darkmode del tema
+// =============================================================
+
+body.darkmode {
+
+    // ── Fondo global ─────────────────────────────────────────
+    background-image: none !important;
+    background-color: #121212 !important;
+    color: #e8e8e8 !important;
+
+    // ── Contenedores principales ──────────────────────────────
+    #page-wrapper,
+    #page.drawers,
+    #page,
+    .main-inner,
+    #page.drawers .main-inner {
+        background-color: #1e1e1e !important;
+        color: #e8e8e8 !important;
+    }
+
+    #region-main {
+        background-color: transparent !important;
+    }
+
+    // ── Textos generales ──────────────────────────────────────
+    h1, h2, h3, h4, h5, h6,
+    p, span, label, li, td, th,
+    .page-header-headings h1 {
+        color: #e8e8e8 !important;
+    }
+
+    a:not(.btn):not(.nav-link):not(.dropdown-item) {
+        color: #a3e066;
+        &:hover { color: #c0f07a; }
+    }
+
+    // ── Navbar ────────────────────────────────────────────────
+    .navbar.fixed-top {
+        background-color: #1a1a1a !important;
+        border-bottom: 1px solid #333 !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+
+        .nav-link,
+        .dropdown-toggle,
+        .custom-nav-item { color: #ccc !important; }
+
+        .navbar-brand img { filter: brightness(0.9); }
+    }
+
+    // ── Menús desplegables ────────────────────────────────────
+    .dropdown-menu {
+        background-color: #2a2a2a !important;
+        border-color: #444 !important;
+
+        .dropdown-item {
+            color: #ddd !important;
+            &:hover, &:focus { background-color: #3a3a3a !important; color: #fff !important; }
+        }
+
+        .dropdown-divider { border-top-color: #444 !important; }
+    }
+
+    // ── Navegación secundaria ─────────────────────────────────
+    .secondary-navigation {
+        background-color: #1e1e1e !important;
+        border-color: #333 !important;
+        box-shadow: 4px 4px 12px rgba(0,0,0,0.6) !important;
+
+        // Todos los links: normales, activos, active_tree_node
+        nav.moremenu,
+        .moremenu {
+            .nav-tabs,
+            ul.nav {
+                .nav-item {
+                    a.nav-link,
+                    .nav-link {
+                        color: #bbb !important;
+                        background-color: transparent !important;
+                        border-color: transparent !important;
+
+                        &:hover,
+                        &:focus {
+                            color: #a3e066 !important;
+                            background-color: rgba(255,255,255,0.06) !important;
+                        }
+
+                        &.active,
+                        &.active_tree_node,
+                        &[aria-current="true"] {
+                            color: #a3e066 !important;
+                            background-color: transparent !important;
+                            border-bottom-color: #a3e066 !important;
+                            border-top-color: transparent !important;
+                            border-left-color: transparent !important;
+                            border-right-color: transparent !important;
+                        }
+                    }
+                }
+            }
+
+            // Botón "Más"
+            .dropdownmoremenu {
+                .dropdown-toggle {
+                    color: #bbb !important;
+                    background-color: transparent !important;
+                }
+
+                .dropdown-menu {
+                    background-color: #2a2a2a !important;
+                    border-color: #444 !important;
+
+                    .dropdown-item {
+                        color: #ddd !important;
+                        background-color: transparent !important;
+
+                        &:hover, &:focus {
+                            background-color: #333 !important;
+                            color: #a3e066 !important;
+                        }
+
+                        &.active {
+                            background-color: #677D29 !important;
+                            color: #fff !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Fallback directo por nav.moremenu fuera de .secondary-navigation
+    nav.moremenu.navigation {
+        background-color: #1e1e1e !important;
+        border-color: #333 !important;
+
+        .nav-item a,
+        .nav-item .nav-link {
+            color: #bbb !important;
+            background-color: transparent !important;
+            border-color: transparent !important;
+
+            &.active, &.active_tree_node, &[aria-current="true"] {
+                color: #a3e066 !important;
+                border-bottom-color: #a3e066 !important;
+            }
+        }
+    }
+
+    // ── Drawers laterales ─────────────────────────────────────
+    .drawer {
+        background-color: #1e1e1e !important;
+        color: #e8e8e8 !important;
+
+        a, .nav-link { color: #ccc !important; }
+        .nav-link.active { color: $brand-primary !important; }
+    }
+
+    // ── Cards estándar de Moodle ──────────────────────────────
+    .card {
+        background-color: #2a2a2a !important;
+        color: #e8e8e8 !important;
+        border-color: #3a3a3a !important;
+
+        .card-header, .card-footer {
+            background-color: #333 !important;
+            border-color: #444 !important;
+            color: #e8e8e8 !important;
+        }
+
+        .card-body { color: #e8e8e8 !important; }
+    }
+
+    // ── Formularios e inputs ──────────────────────────────────
+    input, select, textarea, .form-control {
+        background-color: #2a2a2a !important;
+        color: #e8e8e8 !important;
+        border-color: #555 !important;
+
+        &::placeholder { color: rgba(255,255,255,0.4) !important; }
+        &:focus { border-color: $brand-primary !important; box-shadow: 0 0 0 0.2rem rgba(103,125,41,0.25) !important; }
+    }
+
+    .input-group-text {
+        background-color: #333 !important;
+        border-color: #555 !important;
+        color: #ccc !important;
+    }
+
+    // ── Botones ───────────────────────────────────────────────
+    .btn-secondary, .btn-outline-secondary {
+        background-color: #3a3a3a !important;
+        border-color: #555 !important;
+        color: #ddd !important;
+        &:hover { background-color: #4a4a4a !important; }
+    }
+
+    .btn-outline-primary {
+        border-color: $brand-primary !important;
+        color: $brand-primary !important;
+        &:hover { background-color: $brand-primary !important; color: #fff !important; }
+    }
+
+    // ── Breadcrumb ────────────────────────────────────────────
+    .breadcrumb {
+        background-color: transparent !important;
+
+        .breadcrumb-item { color: #ccc !important; a { color: $brand-primary !important; } }
+        .breadcrumb-item.active { color: #999 !important; }
+        .breadcrumb-item + .breadcrumb-item::before { color: #666 !important; }
+    }
+
+    // ── Tablas ────────────────────────────────────────────────
+    table, .table {
+        color: #e8e8e8 !important;
+        border-color: #444 !important;
+
+        thead { background-color: #2a2a2a !important; th { color: #e8e8e8 !important; } }
+        tbody tr { &:nth-child(even) { background-color: #262626 !important; } }
+        td, th { border-color: #3a3a3a !important; }
+    }
+
+    // ── Alertas ───────────────────────────────────────────────
+    .alert {
+        border-color: #444 !important;
+        &.alert-info { background-color: #1a2e3a !important; color: #9fd3f0 !important; }
+        &.alert-success { background-color: #1a2e1a !important; color: #90d090 !important; }
+        &.alert-warning { background-color: #2e2a1a !important; color: #d0b870 !important; }
+        &.alert-danger { background-color: #2e1a1a !important; color: #d09090 !important; }
+    }
+
+    // ── Bloque myoverview (Mis Cursos) ────────────────────────
+    .block_myoverview {
+        h3, .card-title { color: #e8e8e8 !important; }
+
+        .btn-outline-secondary {
+            color: #ccc !important;
+            border-color: #555 !important;
+            background-color: #2a2a2a !important;
+            &:hover { background-color: #3a3a3a !important; }
+        }
+
+        .form-control {
+            background-color: #2a2a2a !important;
+            color: #e8e8e8 !important;
+            border-color: #555 !important;
+        }
+
+        // Sorting dropdown
+        #sortingdropdown {
+            background-color: #2a2a2a !important;
+            color: #e8e8e8 !important;
+            border-color: #555 !important;
+        }
+    }
+
+    // ── Tarjetas de curso (.moove-course-card-target) ─────────
+    // (tienen fondo de imagen oscuro de por sí — textos ya blancos)
+    .moove-course-card-target {
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
+    }
+
+    // ── Frontpage: hero text ──────────────────────────────────
+    .hero-container { background: transparent !important; }
+
+    .hero-text {
+        h1 { color: $brand-primary !important; span { color: #e8e8e8 !important; } }
+        p { color: #e8e8e8 !important; }
+    }
+
+    // ── Frontpage: offer cards (ya tienen fondo oscuro) ───────
+    .offer-card {
+        box-shadow: 0 6px 24px rgba(0,0,0,0.5) !important;
+    }
+
+    // ── Interior: main-inner ──────────────────────────────────
+    #page.drawers .main-inner {
+        background-color: #1e1e1e !important;
+    }
+
+    // ── Popover notificaciones ────────────────────────────────
+    .popover-region-container {
+        background-color: #2a2a2a !important;
+        border-color: #444 !important;
+        color: #e8e8e8 !important;
+
+        .popover-region-header-container { border-bottom-color: #444 !important; }
+        .content-item-container {
+            background-color: #2a2a2a !important;
+            &.unread { background-color: #303030 !important; }
+            &:hover { background-color: #363636 !important; }
+        }
+    }
+
+    // ── Modals ────────────────────────────────────────────────
+    .modal-content {
+        background-color: #2a2a2a !important;
+        color: #e8e8e8 !important;
+        border-color: #444 !important;
+    }
+    .modal-header, .modal-footer {
+        border-color: #444 !important;
+    }
+
+    // ── Páginas de curso interior ─────────────────────────────
+    .course-content,
+    #page-content,
+    .course-index,
+    #section-0,
+    .activity-item,
+    .section-item {
+        color: #e8e8e8 !important;
+    }
+
+    .activity-item, .courseindex-item {
+        background-color: transparent !important;
+        &:hover { background-color: #2a2a2a !important; }
+    }
+
+    .coursebox, .section_footer { color: #e8e8e8 !important; }
+
+    // ── Sorting dropdown (interior pages) ─────────────────────
+    #sortingdropdown {
+        background-color: #2a2a2a !important;
+        color: #e8e8e8 !important;
+        border-color: #555 !important;
+    }
+
+    // ── Paginación ────────────────────────────────────────────
+    .pagination {
+        .page-link {
+            background-color: #2a2a2a !important;
+            border-color: #444 !important;
+            color: #ccc !important;
+        }
+        .page-item.active .page-link {
+            background-color: $brand-primary !important;
+            border-color: $brand-primary !important;
+        }
+    }
+
+    // ── Badges ───────────────────────────────────────────────
+    .badge.bg-info, .badge-info { background-color: #1a4a6a !important; }
+    .badge.bg-success, .badge-success { background-color: #1a4a1a !important; }
+    .badge.bg-warning, .badge-warning { background-color: #4a3a1a !important; }
+    .badge.bg-danger, .badge-danger { background-color: #4a1a1a !important; }
+
+    // ── Footer ────────────────────────────────────────────────
+    footer {
+        background-color: #1a1a1a !important;
+        color: #aaa !important;
+        a { color: #a3e066 !important; }
+    }
+
+} // fin body.darkmode
