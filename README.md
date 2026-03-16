@@ -12,8 +12,3 @@ El tema está diseñado para optimizar la experiencia de usuario (UX) y la inter
 * **Layout Responsivo:** Compatible con dispositivos móviles y tablets.
 * **Integración con Moodle:** Compatible con versiones [Insertar versión, ej: 3.11 / 4.x].
 
-## 🛠️ Instalación
-1. Descarga o clona este repositorio en tu carpeta de temas de Moodle:
-   ```bash
-   cd /ruta/a/tu/moodle/theme
-   git clone [https://github.com/DPosso99/Tema_Moodle_UNAL_habitattics.git](https://github.com/DPosso99/Tema_Moodle_UNAL_habitattics.git) moove_chagra
